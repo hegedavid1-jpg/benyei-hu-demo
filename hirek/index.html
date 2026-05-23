@@ -1,0 +1,1147 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../assets/b13-logo.svg" type="image/svg+xml">
+  <title>Médiamegjelenések | B13 Architects</title>
+  <meta name="description" content="Hazai és nemzetközi sajtóban megjelent videók, interjúk és cikkek Bényei Istvánról, a B13 Architects munkáiról és a stúdió szemléletéről.">
+  <link rel="canonical" href="https://benyei.hu/hirek">
+  <style>
+    :root {
+      --paper: #f7f7f4;
+      --white: #ffffff;
+      --ink: #121212;
+      --graphite: #3f403d;
+      --muted: #74756f;
+      --line: #d8d8d0;
+      --line-strong: #b9bab1;
+      --brand: #d60d32;
+      --sage: #79877d;
+      --blue: #1f3440;
+      --clay: #a86f54;
+      --max: 1440px;
+      --pad: clamp(20px, 4vw, 64px);
+      --radius: 6px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      background: #e7e7e0;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 28px;
+      padding: 18px var(--pad);
+      background: color-mix(in srgb, var(--paper) 92%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 74%, transparent);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-width: 70px;
+    }
+
+    .logo-mark {
+      width: auto;
+      height: 48px;
+      background: transparent;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: clamp(14px, 1.7vw, 28px);
+      color: var(--graphite);
+      font-size: 12px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .nav a {
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 5px;
+      width: 100%;
+      height: 1px;
+      background: var(--brand);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .28s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a:focus-visible::after,
+    .nav a[aria-current="page"]::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .lang {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 8px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 1px;
+      margin: 5px auto;
+      background: currentColor;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 85px 0 0;
+      z-index: 40;
+      display: none;
+      padding: 28px var(--pad);
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 20px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .menu-open .mobile-menu {
+      display: block;
+    }
+
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(72px, 9vw, 132px) var(--pad);
+    }
+
+    .section-tight {
+      padding-top: clamp(48px, 6vw, 88px);
+      padding-bottom: clamp(48px, 6vw, 88px);
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 920px;
+      margin-bottom: 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 4vw, 64px);
+      font-weight: 400;
+      line-height: 1.06;
+    }
+
+    h2 {
+      max-width: 780px;
+      margin-bottom: 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(30px, 4vw, 56px);
+      font-weight: 400;
+      line-height: 1.06;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: clamp(20px, 2.1vw, 30px);
+      font-weight: 500;
+      line-height: 1.18;
+    }
+
+    .lead {
+      max-width: 700px;
+      color: var(--graphite);
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.5;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 12px 18px;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--white);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: background .25s ease, color .25s ease, border-color .25s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: var(--brand);
+      border-color: var(--brand);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .button.secondary:hover,
+    .button.secondary:focus-visible {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--white);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, .88fr) minmax(360px, 1.12fr);
+      gap: clamp(28px, 5vw, 86px);
+      align-items: end;
+      min-height: calc(100vh - 86px);
+      padding-top: clamp(28px, 4vw, 56px);
+    }
+
+    .hero-copy {
+      padding-bottom: clamp(20px, 5vw, 78px);
+    }
+
+    .hero-media {
+      display: grid;
+      grid-template-columns: 1fr .72fr;
+      grid-template-rows: minmax(340px, 58vh) minmax(150px, 22vh);
+      gap: 12px;
+      min-height: 610px;
+    }
+
+    .hero-media figure {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #ddd;
+    }
+
+    .hero-media figure:first-child {
+      grid-row: 1 / span 2;
+    }
+
+    .hero-media img,
+    .post-card img,
+    .feature-link img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-media figcaption {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--ink) 64%, transparent);
+      color: var(--white);
+      font-size: 12px;
+      backdrop-filter: blur(12px);
+    }
+
+    .press-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 28px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .press-strip span {
+      display: grid;
+      gap: 5px;
+      min-height: 112px;
+      align-content: end;
+      padding: 18px;
+      background: var(--paper);
+      color: var(--graphite);
+      font-size: 13px;
+    }
+
+    .press-strip strong {
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(26px, 3vw, 42px);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(260px, .75fr) minmax(300px, 1fr);
+      gap: clamp(24px, 5vw, 80px);
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: minmax(240px, .7fr) minmax(0, 1fr);
+      gap: 16px;
+      margin-bottom: 34px;
+      align-items: center;
+    }
+
+    .search {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: var(--brand);
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .filter {
+      min-height: 40px;
+      padding: 9px 13px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--graphite);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: background .22s ease, color .22s ease, border-color .22s ease;
+    }
+
+    .filter[aria-pressed="true"] {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .post-list {
+      display: grid;
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .post-card {
+      display: grid;
+      grid-template-columns: minmax(210px, .34fr) minmax(0, 1fr) auto;
+      gap: clamp(18px, 3vw, 40px);
+      align-items: stretch;
+      min-height: 230px;
+      padding: clamp(14px, 2vw, 22px);
+      background: var(--paper);
+      transition: background .22s ease;
+    }
+
+    .post-card[hidden] {
+      display: none;
+    }
+
+    .post-card:hover {
+      background: color-mix(in srgb, var(--paper) 88%, var(--white));
+    }
+
+    .post-card.featured {
+      min-height: 310px;
+    }
+
+    .post-media {
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #ddd;
+    }
+
+    .post-card img {
+      transition: transform .7s ease;
+    }
+
+    .post-card:hover img,
+    .post-card:focus-within img {
+      transform: scale(1.035);
+    }
+
+    .post-body {
+      display: grid;
+      align-content: center;
+      max-width: 760px;
+      padding: 8px 0;
+    }
+
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-bottom: 16px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .post-card p {
+      max-width: 680px;
+      margin-bottom: 0;
+      color: var(--graphite);
+    }
+
+    .post-label {
+      align-self: start;
+      justify-self: end;
+      min-width: 108px;
+      padding: 8px 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      color: var(--graphite);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .empty {
+      display: none;
+      margin: 28px 0 0;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .empty.is-visible {
+      display: block;
+    }
+
+    .feature-band {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(320px, 1.08fr);
+      gap: clamp(30px, 5vw, 80px);
+      align-items: center;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .feature-link {
+      display: grid;
+      min-height: 460px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #ddd;
+    }
+
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .site-footer {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 30px var(--pad);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      color: var(--graphite);
+    }
+
+    .social {
+      text-align: right;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1120px) {
+      .nav {
+        display: none;
+      }
+
+      .site-header {
+        grid-template-columns: auto 1fr auto;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .hero,
+      .section-head,
+      .tools,
+      .feature-band {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding-bottom: 0;
+      }
+
+      .hero-media {
+        grid-template-rows: minmax(280px, 48vh) minmax(170px, 24vh);
+        min-height: 520px;
+      }
+
+      .filter-bar {
+        justify-content: flex-start;
+      }
+
+      .post-card {
+        grid-template-columns: minmax(180px, .4fr) minmax(0, 1fr);
+      }
+
+      .post-label {
+        grid-column: 2;
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .logo-mark {
+        height: 42px;
+      }
+
+      .mobile-menu {
+        inset: 67px 0 0;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-media {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        min-height: 0;
+      }
+
+      .hero-media figure,
+      .hero-media figure:first-child {
+        grid-row: auto;
+        aspect-ratio: 4 / 3;
+      }
+
+      .press-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .post-card,
+      .post-card.featured {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+
+      .post-media {
+        aspect-ratio: 16 / 10;
+      }
+
+      .post-label {
+        grid-column: auto;
+      }
+
+      .site-footer {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .social {
+        text-align: left;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html#top" aria-label="B13 Architects főoldal">
+      <img class="logo-mark" src="../assets/b13-logo.svg" alt="B13 Architects">
+    </a>
+    <nav class="nav" aria-label="Fő navigáció">
+      <a href="../index.html">Kezdőlap</a>
+      <a href="../index.html#munkak">Munkák</a>
+      <a href="../epiteszet-galeria/index.html">Építészet</a>
+      <a href="../belsoepiteszet-galeria/index.html">Belsőépítészet</a>
+      <a href="../index.html#projekt">Projekt</a>
+      <a href="../rolunk/index.html">Studio</a>
+      <a href="index.html" aria-current="page">Media</a>
+      <a href="../index.html#kapcsolat">Kapcsolat</a>
+    </nav>
+    <div class="header-actions">
+      <a class="lang" href="#top" lang="en" aria-label="English version">English</a>
+      <button class="menu-toggle" type="button" aria-label="Menü megnyitása" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" aria-label="Mobil navigáció">
+    <a href="../index.html">Kezdőlap</a>
+    <a href="../index.html#munkak">Munkák</a>
+    <a href="../epiteszet-galeria/index.html">Építészet</a>
+    <a href="../belsoepiteszet-galeria/index.html">Belsőépítészet</a>
+    <a href="../index.html#projekt">Projekt</a>
+    <a href="../rolunk/index.html">Studio</a>
+    <a href="index.html" aria-current="page">Media</a>
+    <a href="../index.html#karrier">Karrier</a>
+    <a href="../index.html#kapcsolat">Kapcsolat</a>
+  </nav>
+
+  <main id="top">
+    <section class="section hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Media / hírek</p>
+        <h1>Médiamegjelenések és szakmai bejegyzések.</h1>
+        <p class="lead">Hazai és nemzetközi sajtóban megjelent videók, interjúk és cikkek Bényei Istvánról, a B13 Architects munkáiról és a stúdió építészeti gondolkodásáról.</p>
+        <div class="inline-actions">
+          <a class="button" href="#bejegyzesek">Bejegyzések</a>
+          <a class="button secondary" href="../index.html#kapcsolat">Sajtókapcsolat</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="hero-media reveal" aria-label="Sajtóban megjelent B13 projektek">
+          <figure>
+            <img src="../assets/io16-villa-01.webp" alt="Kortárs villa, amely több sajtómegjelenésben szerepelt">
+            <figcaption><span>Octogon</span><span>Visszafogott elegancia</span></figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/learning-center-02.webp" alt="Debreceni Egyetem Learning Center belső tere">
+            <figcaption><span>Építészfórum</span><span>Learning Center</span></figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/b13-studio-exterior.webp" alt="B13 stúdió külső nézete">
+            <figcaption><span>Interview</span><span>Studio</span></figcaption>
+          </figure>
+        </div>
+        <div class="press-strip reveal" aria-label="Médiaoldal összefoglaló">
+          <span><strong>25+</strong> archivált megjelenés</span>
+          <span><strong>2001</strong> óta követhető sajtónyom</span>
+          <span><strong>HU / EN</strong> hazai és nemzetközi média</span>
+          <span><strong>Cikk + video</strong> publikációk és interjúk</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" id="bejegyzesek">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Bejegyzések</p>
+          <h2>Publikációk, interjúk és szakmai visszhang egy helyen.</h2>
+        </div>
+        <p class="lead">A médiaarchívum tartalmai bejegyzéslogikába rendezve, médium, projekt, év, típus és téma szerint kereshetően.</p>
+      </div>
+
+      <div class="tools reveal">
+        <input class="search" type="search" placeholder="Keresés médium, cím, év vagy projekt szerint" aria-label="Médiamegjelenések keresése">
+        <div class="filter-bar" aria-label="Média szűrők">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">Mind</button>
+          <button class="filter" type="button" data-filter="cikk" aria-pressed="false">Cikk</button>
+          <button class="filter" type="button" data-filter="interju" aria-pressed="false">Interjú</button>
+          <button class="filter" type="button" data-filter="video" aria-pressed="false">Videó</button>
+          <button class="filter" type="button" data-filter="nemzetkozi" aria-pressed="false">Nemzetközi</button>
+          <button class="filter" type="button" data-filter="magyar" aria-pressed="false">Magyar</button>
+        </div>
+      </div>
+
+      <div class="post-list reveal" data-post-list>
+        <article class="post-card featured" id="deco-journal" data-tags="cikk nemzetkozi deco journal 2019 condo lakohaz">
+          <figure class="post-media"><img src="../assets/h45-architecture-01.webp" alt="Kortárs lakóépület sajtómegjelenéshez"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Deco Journal</span><span>2019. november</span><span>Nemzetközi cikk</span></div>
+            <h3>Bold, rather than Brash</h3>
+            <p>A stúdió merész, mégis visszafogott építészeti formálásáról szóló nemzetközi publikáció.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card featured" id="janus-arcu-villa" data-tags="cikk magyar octogon 2022 villa janus">
+          <figure class="post-media"><img src="../assets/jv01-bauhaus-interior-01.webp" alt="Villa belső tere publikációs előnézetként"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Octogon</span><span>2022.10.24.</span><span>Magyar cikk</span></div>
+            <h3>Janus-arcú villa</h3>
+            <p>Írás egy minőségi, kompromisszummentes lakóépületről, amely két eltérő karaktert tart fegyelmezett egységben.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card featured" id="learning-center" data-tags="cikk magyar epiteszforum 2022 learning center debrecen belsoepiteszet">
+          <figure class="post-media"><img src="../assets/learning-center-02.webp" alt="Debreceni Egyetem Learning Center belső tere"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Építészfórum</span><span>2022.09.05.</span><span>Közintézmény</span></div>
+            <h3>Nagyvonalú és otthonos</h3>
+            <p>A Debreceni Egyetem Learning Center belső tereinek bemutatása, ahol a lépték, az áttekinthetőség és az otthonosság együtt jelenik meg.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="gg-magazine" data-tags="cikk magyar gg magazine 2019 lakohaz">
+          <figure class="post-media"><img src="../assets/h45-interior-living.webp" alt="Finoman szerkesztett lakásbelső"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>G&G Magazine</span><span>2019. november</span><span>Magyar cikk</span></div>
+            <h3>Inkább merész, mint pimasz</h3>
+            <p>Magyar nyelvű publikáció a kifinomult, karakteres építészeti gondolkodásról.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="aeccafe" data-tags="cikk nemzetkozi aeccafe 2019 condo budapest">
+          <figure class="post-media"><img src="../assets/h45-architecture-01.webp" alt="Városi társasház külső nézete"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>AECCAFÉ</span><span>2019.07.31.</span><span>Nemzetközi cikk</span></div>
+            <h3>New Budapest Condo in Hungary</h3>
+            <p>A publikáció az emberi kapcsolatok, a természetközelség és a csend luxusként értelmezett szerepét emeli ki.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="visszafogott-elegancia" data-tags="cikk magyar octogon 2022 villa medence elegancia">
+          <figure class="post-media"><img src="../assets/io16-villa-01.webp" alt="Modern medencés villa publikációs képe"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Octogon</span><span>2022.01.24.</span><span>Magyar cikk</span></div>
+            <h3>Visszafogott elegancia, maximális kényelem</h3>
+            <p>Minimalista, nem hivalkodó, 21. századi lakóépület bemutatása építészeti részleteken keresztül.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="inhabitat" data-tags="cikk nemzetkozi inhabitat 2019 luxury condo nature">
+          <figure class="post-media"><img src="../assets/h45-interior-kitchen.webp" alt="Lakásbelső természetes fénnyel és növényekkel"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Inhabitat</span><span>2019.07.24.</span><span>Nemzetközi cikk</span></div>
+            <h3>Luxury Condo in Budapest Will Bring Residents Closer to Nature</h3>
+            <p>A luxus lakóterek modern értelmezése a design minőségén túl a természettel való kapcsolatra épül.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="egy-sziget-lehetosege" data-tags="cikk magyar octogon 2021 csaladi haz">
+          <figure class="post-media"><img src="../assets/ck08-exterior-01.webp" alt="Családi ház lamellás kerítéssel és rétegzett homlokzattal"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Octogon</span><span>2021.02.01.</span><span>Magyar cikk</span></div>
+            <h3>Egy sziget lehetősége</h3>
+            <p>Családi ház a főváros szélén, ahol a telek nehéz adottságai építészeti lehetőséggé válnak.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="archinect" data-tags="cikk nemzetkozi archinect 2019 luxury nature condo">
+          <figure class="post-media"><img src="../assets/h45-architecture-01.webp" alt="Kortárs társasház homlokzata"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Archinect</span><span>2019. augusztus</span><span>Nemzetközi cikk</span></div>
+            <h3>Luxury of Nature and Human Contact</h3>
+            <p>Nemzetközi reflexió a környezet intimitásának megértéséről és a társasházi lépték emberközpontú kezeléséről.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="archello" data-tags="cikk nemzetkozi archello 2019 luxury nature">
+          <figure class="post-media"><img src="../assets/h45-interior-living.webp" alt="Lakóenteriőr ívelt faburkolattal"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Archello</span><span>2019. nyár</span><span>Nemzetközi cikk</span></div>
+            <h3>The Luxury of Nature and Human Contact</h3>
+            <p>A természettel és az emberekkel való kapcsolat helyreállítása mint tervezési alapelv.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="e-architect" data-tags="cikk nemzetkozi e-architect 2019 veres residence">
+          <figure class="post-media"><img src="../assets/ck08-exterior-02.webp" alt="Kortárs családi ház külső nézete"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>e-architect</span><span>2019.02.28.</span><span>Nemzetközi cikk</span></div>
+            <h3>Veres Residence</h3>
+            <p>Értékteremtő épület bemutatása, amely modellként olvasható a heterogén környezetben.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="ismeros-otthonos-ujito" data-tags="cikk magyar epiteszforum 2021 csaladi haz kortars">
+          <figure class="post-media"><img src="../assets/gj41-holiday-01.webp" alt="Kortárs ház természetes környezetben"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Építészfórum</span><span>2021.03.18.</span><span>Magyar cikk</span></div>
+            <h3>Ismerős, otthonos, újító</h3>
+            <p>Kortárs családi ház a kis faluban, a népi építészet alapformájának szabad újraértelmezéseként.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="az-ev-epuletei" data-tags="cikk magyar index 2019 dij kozonsegdij">
+          <figure class="post-media"><img src="../assets/b13-studio-exterior.webp" alt="B13 stúdió épülete a budai hegyoldalon"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Index</span><span>2019.11.08.</span><span>Magyar cikk</span></div>
+            <h3>Az év épületei</h3>
+            <p>A Média Építészeti Díjához kapcsolódó válogatás, szakmai zsűri által kiemelt épületekkel.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="triptichon" data-tags="cikk magyar epiteszforum 2020 csaladi haz obuda">
+          <figure class="post-media"><img src="../assets/ck08-exterior-01.webp" alt="Családi ház bejárati oldalról"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Építészfórum</span><span>2020.08.04.</span><span>Magyar cikk</span></div>
+            <h3>Triptichon – Családi ház Óbudán</h3>
+            <p>Publikáció a bejárat építészeti jelentőségéről és a lakóház szerkesztett gesztusairól.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="tobb-valasz" data-tags="cikk magyar epiteszforum 2021 csaladi haz budapest">
+          <figure class="post-media"><img src="../assets/ck08-interior-01.webp" alt="Kortárs családi ház belső tere"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Építészfórum</span><span>2021.06.07.</span><span>Magyar cikk</span></div>
+            <h3>Több válasz egy kérdésre</h3>
+            <p>Budapesti családi ház sűrű beépítésű környezetben, több párhuzamos tervezési problémára adott válasszal.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="cgtn-europe" data-tags="interju video nemzetkozi cgtn 2022 fenntarthatosag">
+          <figure class="post-media"><img src="../assets/b13-studio-interior.webp" alt="B13 stúdió belső tere interjú előnézetként"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>CGTN Europe</span><span>2022.11.09.</span><span>Videóinterjú</span></div>
+            <h3>Interjú a környezettudatos tervezésről</h3>
+            <p>Beszélgetés arról, hogyan inspirálhatnak a lakóépületek fenntarthatóbb megoldásokra.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="octogon-rombolas-helyett" data-tags="cikk magyar octogon 2019 studio iroda">
+          <figure class="post-media"><img src="../assets/b13-studio-exterior.webp" alt="Átalakított B13 műterem külső nézete"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Octogon</span><span>2019. november</span><span>Magyar cikk</span></div>
+            <h3>Rombolás helyett megújítás</h3>
+            <p>Ipari romból alakított műterem, amely a Média Építészeti Díján is a közönség által kiemelt épületek közé került.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="prefa" data-tags="cikk magyar epiteszforum 2021 dij prefa">
+          <figure class="post-media"><img src="../assets/ck08-exterior-02.webp" alt="Kortárs épület fémburkolati részletekkel"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Építészfórum</span><span>2021.06.25.</span><span>Díj / cikk</span></div>
+            <h3>A 2020-as és 2021-es év legjobb fémlemezfedéses épületei</h3>
+            <p>A PREFA pályázatához kapcsolódó szakmai megjelenés, díjazott építészeti munkákkal.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="rtl-fokusz" data-tags="video interju magyar rtl fokusz 2012 lakohaz">
+          <figure class="post-media"><img src="../assets/io16-villa-02.webp" alt="Panorámás villa videós megjelenéshez"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>RTL Klub Fókusz</span><span>2012</span><span>Videó</span></div>
+            <h3>Magyarország legdrágább házai</h3>
+            <p>Televíziós megjelenés Bényei István házairól, praktikus, ésszerű és letisztult lakóterekről.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="the-new-york-times" data-tags="cikk nemzetkozi new york times 2001 meo muzeum">
+          <figure class="post-media"><img src="../assets/b13-studio-interior.webp" alt="Művészeti és építészeti hangulatú belső tér"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>The New York Times</span><span>2001.08.26.</span><span>Nemzetközi cikk</span></div>
+            <h3>ART/ARCHITECTURE; Museum Building In the Budapest Style</h3>
+            <p>Korai nemzetközi sajtómegjelenés a Bényei István és Héder János által tervezett MEO kapcsán.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="a-feherseg-hatalma" data-tags="cikk magyar epiteszforum 2019 csaladi haz">
+          <figure class="post-media"><img src="../assets/io16-villa-01.webp" alt="Fehér tónusú kortárs villa"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Építészfórum</span><span>2019.07.18.</span><span>Magyar cikk</span></div>
+            <h3>A fehérség hatalma</h3>
+            <p>Kimagasló minőségű kortárs épület, amelyet funkcionális rend, arányosság és fogalmi tisztaság szervez.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="epiteszstudio-budan" data-tags="cikk magyar epiteszforum 2018 studio iroda buda">
+          <figure class="post-media"><img src="../assets/b13-studio-exterior.webp" alt="Építészstúdió a budai hegyoldalon"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Építészfórum</span><span>2018.10.09.</span><span>Studio</span></div>
+            <h3>Építészstúdió a budai hegyoldalon</h3>
+            <p>A fénnyel, hangokkal, kilátással és szabad térrel való tudatos építkezés eredménye.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="life-interju" data-tags="interju magyar life 2017 benyei istvan jovohazak">
+          <figure class="post-media"><img src="../assets/b13-studio-interior.webp" alt="B13 irodatér interjú hangulatképhez"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Life</span><span>2017.08.18.</span><span>Interjú</span></div>
+            <h3>A jövő házai már a jelenben élnek</h3>
+            <p>Beszélgetés Bényei Istvánnal építészetről, környezetről, akaratról, pénzről és tehetségről.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="meo" data-tags="cikk magyar epiteszforum 2002 meo kortars muveszet muzeum">
+          <figure class="post-media"><img src="../assets/b13-studio-exterior.webp" alt="Kortárs építészeti tömeg műtermi karakterrel"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Építészfórum</span><span>2002.04.26.</span><span>Magyar cikk</span></div>
+            <h3>MEO Kortárs Művészeti Gyűjtemény</h3>
+            <p>A MEO impozáns és praktikus tereiről, valamint az új, önálló építészeti karakterről szóló publikáció.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="duna-tv" data-tags="video interju magyar duna tv 2001 kortars muveszet">
+          <figure class="post-media"><img src="../assets/b13-studio-interior.webp" alt="Belső tér televíziós interjú előnézetként"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>Duna TV</span><span>2001</span><span>Videó</span></div>
+            <h3>Duna TV</h3>
+            <p>Riport a kortárs képzőművészet új helyszíneiről, több szakemberrel, köztük Bényei Istvánnal.</p>
+          </div>
+          <span class="post-label">Bejegyzés</span>
+        </article>
+
+        <article class="post-card" id="mindent-lehet-maskep" data-tags="interju magyar studio benyei istvan szemlelet">
+          <figure class="post-media"><img src="../assets/b13-studio-exterior.webp" alt="B13 stúdió épülete interjúhoz"></figure>
+          <div class="post-body">
+            <div class="post-meta"><span>B13 Studio</span><span>Interjú</span><span>Szemlélet</span></div>
+            <h3>„Mindent lehet másképp csinálni”</h3>
+            <p>Kapcsolódó stúdióinterjú építészetről, felelősségről és a műterem saját gondolkodásáról.</p>
+          </div>
+          <span class="post-label">Kapcsolódó</span>
+        </article>
+      </div>
+
+      <p class="empty" data-empty>Nincs találat erre a szűrésre. Próbálj más keresőszót vagy tágabb kategóriát.</p>
+    </section>
+
+    <section class="section feature-band" id="sajto">
+      <div class="reveal">
+        <p class="eyebrow">Sajtó és együttműködés</p>
+        <h2>Anyagkérés, interjú vagy projektpublikáció.</h2>
+        <p class="lead">Sajtómegkereséshez a stúdióval közvetlenül érdemes felvenni a kapcsolatot. Projektképek, háttéranyagok és interjúegyeztetés célzott kérés alapján készülnek elő.</p>
+        <div class="inline-actions">
+          <a class="button" href="../index.html#kapcsolat">Kapcsolatfelvétel</a>
+          <a class="button secondary" href="../index.html#munkak">Portfólió</a>
+        </div>
+      </div>
+      <figure class="feature-link reveal">
+        <img src="../assets/b13-studio-interior.webp" alt="B13 Architects műterem belső tere">
+      </figure>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>B13 Architects</span>
+    <nav class="footer-links" aria-label="Lábléc navigáció">
+      <a href="../index.html">Kezdőlap</a>
+      <a href="../index.html#munkak">Munkák</a>
+      <a href="../epiteszet-galeria/index.html">Építészet</a>
+      <a href="../belsoepiteszet-galeria/index.html">Belsőépítészet</a>
+      <a href="../rolunk/index.html">Studio</a>
+      <a href="index.html" aria-current="page">Media</a>
+      <a href="../index.html#kapcsolat">Kapcsolat</a>
+    </nav>
+    <span class="social">Facebook · Instagram · Pinterest · YouTube</span>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector(".menu-toggle");
+    const body = document.body;
+    const mobileMenu = document.querySelector(".mobile-menu");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = body.classList.toggle("menu-open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    mobileMenu.addEventListener("click", (event) => {
+      if (event.target.matches("a")) {
+        body.classList.remove("menu-open");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    const filters = document.querySelectorAll("[data-filter]");
+    const cards = document.querySelectorAll(".post-card");
+    const searchInput = document.querySelector(".search");
+    const emptyState = document.querySelector("[data-empty]");
+    let activeFilter = "all";
+
+    function updatePosts() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const tags = card.dataset.tags;
+        const text = card.textContent.toLowerCase();
+        const matchesFilter = activeFilter === "all" || tags.includes(activeFilter);
+        const matchesSearch = !query || tags.includes(query) || text.includes(query);
+        const isVisible = matchesFilter && matchesSearch;
+
+        card.hidden = !isVisible;
+        if (isVisible) {
+          visibleCount += 1;
+        }
+      });
+
+      emptyState.classList.toggle("is-visible", visibleCount === 0);
+    }
+
+    filters.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+        filters.forEach((filter) => {
+          filter.setAttribute("aria-pressed", String(filter === button));
+        });
+        updatePosts();
+      });
+    });
+
+    searchInput.addEventListener("input", updatePosts);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
+  </script>
+</body>
+</html>
