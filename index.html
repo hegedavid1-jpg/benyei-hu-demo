@@ -1,0 +1,1429 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="assets/b13-logo.svg" type="image/svg+xml">
+  <title>B13 Architects | Építészet és belsőépítészet</title>
+  <meta name="description" content="A B13 Architects budapesti építészeti és belsőépítészeti műterem portfóliója.">
+  <style>
+    :root {
+      --paper: #f7f7f4;
+      --white: #ffffff;
+      --ink: #121212;
+      --graphite: #3f403d;
+      --muted: #74756f;
+      --line: #d8d8d0;
+      --line-strong: #b9bab1;
+      --brand: #d60d32;
+      --sage: #79877d;
+      --blue: #1f3440;
+      --clay: #a86f54;
+      --max: 1440px;
+      --pad: clamp(20px, 4vw, 64px);
+      --radius: 6px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      background: #e7e7e0;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 28px;
+      padding: 18px var(--pad);
+      background: color-mix(in srgb, var(--paper) 92%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 74%, transparent);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-width: 70px;
+    }
+
+    .logo-mark {
+      width: auto;
+      height: 48px;
+      background: transparent;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: clamp(14px, 1.7vw, 28px);
+      font-size: 12px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--graphite);
+    }
+
+    .nav a {
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 5px;
+      width: 100%;
+      height: 1px;
+      background: var(--brand);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .28s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a:focus-visible::after,
+    .nav a[aria-current="page"]::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .lang {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 8px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 1px;
+      margin: 5px auto;
+      background: currentColor;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 85px 0 0;
+      z-index: 40;
+      display: none;
+      padding: 28px var(--pad);
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 20px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .menu-open .mobile-menu {
+      display: block;
+    }
+
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(72px, 9vw, 140px) var(--pad);
+    }
+
+    .section-tight {
+      padding-top: clamp(46px, 6vw, 92px);
+      padding-bottom: clamp(46px, 6vw, 92px);
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 980px;
+      margin-bottom: 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 4vw, 64px);
+      font-weight: 400;
+      line-height: 1.06;
+    }
+
+    h2 {
+      max-width: 780px;
+      margin-bottom: 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 4.4vw, 62px);
+      font-weight: 400;
+      line-height: 1.04;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: clamp(20px, 2.1vw, 30px);
+      font-weight: 500;
+      line-height: 1.18;
+    }
+
+    .lead {
+      max-width: 680px;
+      color: var(--graphite);
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.5;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero {
+      min-height: calc(100vh - 79px);
+      display: grid;
+      grid-template-columns: minmax(0, .82fr) minmax(360px, 1.18fr);
+      gap: clamp(28px, 4vw, 72px);
+      align-items: center;
+      padding-top: clamp(28px, 4vw, 54px);
+    }
+
+    .hero-copy {
+      align-self: end;
+      padding-bottom: clamp(20px, 5vw, 84px);
+    }
+
+    .hero-actions,
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 12px 18px;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--white);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: background .25s ease, color .25s ease, border-color .25s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: var(--brand);
+      border-color: var(--brand);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .button.secondary:hover,
+    .button.secondary:focus-visible {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--white);
+    }
+
+    .hero-gallery {
+      display: grid;
+      grid-template-columns: 1.08fr .72fr;
+      grid-template-rows: minmax(300px, 58vh) minmax(160px, 24vh);
+      gap: 12px;
+      min-height: 620px;
+    }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #ddd;
+    }
+
+    .hero-image:first-child {
+      grid-row: 1 / span 2;
+    }
+
+    .hero-image img,
+    .project-media img,
+    .feature-media img,
+    .story-media img,
+    .media-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image figcaption,
+    .project-media figcaption {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--ink) 62%, transparent);
+      color: var(--white);
+      font-size: 12px;
+      backdrop-filter: blur(12px);
+    }
+
+    .marquee-note {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .marquee-note span {
+      padding: 16px 0;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 480px);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .project-card {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--white);
+      isolation: isolate;
+    }
+
+    .project-card.large {
+      grid-column: span 7;
+      min-height: 620px;
+    }
+
+    .project-card.medium {
+      grid-column: span 5;
+    }
+
+    .project-card.small {
+      grid-column: span 4;
+      min-height: 360px;
+    }
+
+    .project-card.wide {
+      grid-column: span 8;
+      min-height: 430px;
+    }
+
+    .project-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, transparent 42%, rgba(0, 0, 0, .62));
+      opacity: .94;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+      transform: scale(1.01);
+      transition: transform .45s ease;
+    }
+
+    .project-card:hover img,
+    .project-card:focus-within img {
+      transform: scale(1.045);
+    }
+
+    .project-info {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2;
+      display: grid;
+      gap: 8px;
+    }
+
+    .project-info p {
+      margin: 0;
+      color: rgba(255, 255, 255, .82);
+      font-size: 13px;
+    }
+
+    .project-info .meta-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: rgba(255, 255, 255, .78);
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .portfolio-tools {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .search {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--white);
+      padding: 12px 14px;
+      color: var(--ink);
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .filter {
+      min-height: 42px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: transparent;
+      padding: 9px 13px;
+      color: var(--graphite);
+      font-size: 13px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: border-color .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .filter[aria-pressed="true"] {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .listing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .listing-item {
+      display: grid;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+    }
+
+    .listing-item[hidden] {
+      display: none;
+    }
+
+    .listing-item figure {
+      margin: 0;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #ddd;
+    }
+
+    .listing-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+
+    .listing-item:hover img,
+    .listing-item:focus-within img {
+      transform: scale(1.035);
+    }
+
+    .item-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .listing-item h3 {
+      margin-bottom: 4px;
+      font-size: 22px;
+    }
+
+    .listing-item p {
+      margin: 0;
+      color: var(--graphite);
+    }
+
+    .empty {
+      display: none;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--graphite);
+    }
+
+    .empty.is-visible {
+      display: block;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(320px, .82fr) minmax(0, 1.18fr);
+      gap: clamp(28px, 5vw, 84px);
+      align-items: center;
+      background: var(--ink);
+      color: var(--white);
+      max-width: none;
+      padding-left: var(--pad);
+      padding-right: var(--pad);
+    }
+
+    .feature-inner {
+      max-width: 560px;
+      margin-left: auto;
+    }
+
+    .feature .eyebrow {
+      color: #ff4966;
+    }
+
+    .feature .lead,
+    .feature .small {
+      color: rgba(255, 255, 255, .74);
+    }
+
+    .feature-media {
+      min-height: 720px;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .meta-table {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 30px;
+      background: rgba(255, 255, 255, .18);
+    }
+
+    .meta-table div {
+      padding: 14px;
+      background: var(--ink);
+    }
+
+    .meta-table dt {
+      color: rgba(255, 255, 255, .56);
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .meta-table dd {
+      margin: 6px 0 0;
+      color: var(--white);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .story-copy {
+      display: grid;
+      align-content: center;
+      padding: clamp(28px, 5vw, 74px);
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+    }
+
+    .story-copy p {
+      max-width: 660px;
+      color: var(--graphite);
+    }
+
+    .story-media {
+      min-height: 560px;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 34px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .service {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--paper);
+    }
+
+    .service strong {
+      display: block;
+      margin-bottom: 18px;
+      font-size: 13px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .media-item {
+      display: grid;
+      gap: 12px;
+    }
+
+    .media-thumb {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #ddd;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(260px, .8fr) minmax(320px, 1.2fr);
+      gap: clamp(34px, 6vw, 92px);
+      align-items: start;
+    }
+
+    .contact-panel {
+      display: grid;
+      gap: 26px;
+      padding-top: 4px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+    }
+
+    .contact-list dt {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .contact-list dd {
+      margin: 0 0 14px;
+      color: var(--ink);
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      color: var(--graphite);
+      font-size: 12px;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--white);
+      padding: 12px 13px;
+      color: var(--ink);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-message {
+      min-height: 22px;
+      color: var(--sage);
+      font-size: 14px;
+    }
+
+    .site-footer {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 24px;
+      align-items: center;
+      padding: 34px var(--pad);
+      background: var(--graphite);
+      color: var(--white);
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .social {
+      justify-self: end;
+      color: rgba(255, 255, 255, .72);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .site-header {
+        grid-template-columns: auto 1fr auto;
+      }
+
+      .hero,
+      .feature,
+      .story-grid,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding-bottom: 0;
+      }
+
+      .hero-gallery {
+        grid-template-rows: 420px 220px;
+        min-height: auto;
+      }
+
+      .section-head,
+      .portfolio-tools {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-bar {
+        justify-content: flex-start;
+      }
+
+      .project-card.large,
+      .project-card.medium,
+      .project-card.small,
+      .project-card.wide {
+        grid-column: span 6;
+        min-height: 390px;
+      }
+
+      .listing,
+      .media-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-inner {
+        margin-left: 0;
+      }
+
+      .feature-media {
+        min-height: 460px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+
+      .lang {
+        display: none;
+      }
+
+      .mobile-menu {
+        top: 77px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .hero-image,
+      .hero-image:first-child {
+        grid-row: auto;
+        min-height: auto;
+        aspect-ratio: 4 / 3;
+      }
+
+      .hero-image:first-child {
+        aspect-ratio: 3 / 4;
+      }
+
+      .marquee-note {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .project-grid,
+      .listing,
+      .media-grid,
+      .services,
+      .form,
+      .site-footer {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card.large,
+      .project-card.medium,
+      .project-card.small,
+      .project-card.wide {
+        grid-column: span 12;
+        min-height: 340px;
+      }
+
+      .feature-media,
+      .story-media {
+        min-height: auto;
+        aspect-ratio: 4 / 3;
+      }
+
+      .meta-table {
+        grid-template-columns: 1fr;
+      }
+
+      .story-copy {
+        padding-left: 0;
+        padding-right: 0;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .site-footer {
+        justify-items: start;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+
+      .social {
+        justify-self: start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="B13 Architects főoldal">
+      <img class="logo-mark" src="assets/b13-logo.svg" alt="B13 Architects">
+    </a>
+    <nav class="nav" aria-label="Fő navigáció">
+      <a href="#top" aria-current="page">Kezdőlap</a>
+      <a href="#munkak">Munkák</a>
+      <a href="epiteszet-galeria/index.html">Építészet</a>
+      <a href="belsoepiteszet-galeria/index.html">Belsőépítészet</a>
+      <a href="#projekt">Projekt</a>
+      <a href="rolunk/index.html">Studio</a>
+      <a href="hirek/index.html">Media</a>
+      <a href="#kapcsolat">Kapcsolat</a>
+    </nav>
+    <div class="header-actions">
+      <a class="lang" href="#top" lang="en" aria-label="English version">English</a>
+      <button class="menu-toggle" type="button" aria-label="Menü megnyitása" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" aria-label="Mobil navigáció">
+    <a href="#top" aria-current="page">Kezdőlap</a>
+    <a href="#munkak">Munkák</a>
+    <a href="epiteszet-galeria/index.html">Építészet</a>
+    <a href="belsoepiteszet-galeria/index.html">Belsőépítészet</a>
+    <a href="#projekt">Projekt</a>
+    <a href="rolunk/index.html">Studio</a>
+    <a href="hirek/index.html">Media</a>
+    <a href="#karrier">Karrier</a>
+    <a href="#kapcsolat">Kapcsolat</a>
+  </nav>
+
+  <main id="top">
+    <section class="section hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">B13 Architects</p>
+        <h1>Építészet és belső terek, pontosan szerkesztett emberi világgal.</h1>
+        <p class="lead">Budapesti építészeti és belsőépítészeti műterem magánházak, közösségi terek, intézmények és részleteiben végiggondolt belsők számára.</p>
+        <div class="hero-actions">
+          <a class="button" href="#munkak">Munkák böngészése</a>
+          <a class="button secondary" href="#kapcsolat">Projekt indítása</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="hero-gallery reveal" aria-label="Kiemelt projektek">
+          <figure class="hero-image">
+            <img src="assets/ck08-exterior-01.webp" alt="Modern B13 családi ház rétegzett homlokzattal és lamellás kerítéssel">
+            <figcaption><span>CK08</span><span>Családi ház · Budapest</span></figcaption>
+          </figure>
+          <figure class="hero-image">
+            <img src="assets/h45-interior-kitchen.webp" alt="Modern belső tér konyhaszigettel, növényekkel és nagyvonalú étkezővel">
+            <figcaption><span>H45/L4</span><span>Belsőépítészet</span></figcaption>
+          </figure>
+          <figure class="hero-image">
+            <img src="assets/learning-center-01.webp" alt="Debreceni Egyetem Learning Center világos, íves belső tere">
+            <figcaption><span>DIIM/DLC</span><span>Közintézmény</span></figcaption>
+          </figure>
+        </div>
+        <div class="marquee-note" aria-label="Tervezési fókuszok">
+          <span>Architecture</span>
+          <span>Interior design</span>
+          <span>Public space</span>
+          <span>Private homes</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" id="munkak">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Kiemelt munkák</p>
+          <h2>Válogatás építészeti és belsőépítészeti munkáinkból.</h2>
+        </div>
+        <p class="lead">Lakóházak, villák, közintézmények, éttermek és személyes belső terek, amelyekben a hely, az anyag és a használat egy közös történetté áll össze.</p>
+      </div>
+
+      <div class="project-grid reveal">
+        <article class="project-card large">
+          <img src="assets/io16-villa-01.webp" alt="Panorámás modern villa hegyoldali helyzetben">
+          <div class="project-info">
+            <div class="meta-line"><span>Építészet</span><span>Villa</span><span>2025</span></div>
+            <h3>IO16 Villa</h3>
+            <p>Lépcsőzetes tömegformálás, panoráma és fegyelmezett anyaghasználat.</p>
+          </div>
+        </article>
+        <article class="project-card medium">
+          <img src="assets/agape-interior-01.webp" alt="Meleg tónusú, modern étterembelső">
+          <div class="project-info">
+            <div class="meta-line"><span>Belsőépítészet</span><span>Vendéglátás</span><span>2026</span></div>
+            <h3>AGAPE</h3>
+            <p>Anyagok, fények és textúrák csendes, mégis karakteres éttermi világa.</p>
+          </div>
+        </article>
+        <article class="project-card small">
+          <img src="assets/gj41-holiday-01.webp" alt="Modern nyaraló nagy üvegfelületekkel és természetes környezetben">
+          <div class="project-info">
+            <div class="meta-line"><span>Építészet</span><span>Nyaraló</span></div>
+            <h3>GJ41</h3>
+            <p>Letisztult nyaraló, tájjal és nyugalommal arányban tartva.</p>
+          </div>
+        </article>
+        <article class="project-card small">
+          <img src="assets/h45-architecture-01.webp" alt="Kortárs társasház építészeti látványképe">
+          <div class="project-info">
+            <div class="meta-line"><span>Építészet</span><span>Társasház</span></div>
+            <h3>H45</h3>
+            <p>Városi lakóépület tiszta szerkesztéssel és rétegzett homlokzattal.</p>
+          </div>
+        </article>
+        <article class="project-card small">
+          <img src="assets/b13-studio-interior.webp" alt="B13 műterem világos irodabelsővel és bordó függönnyel">
+          <div class="project-info">
+            <div class="meta-line"><span>Studio</span><span>Iroda</span></div>
+            <h3>B13 műterem</h3>
+            <p>Saját tér, ahol a műterem gondolkodása fizikailag is láthatóvá válik.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-tight" id="epiteszet">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Portfólió kereső</p>
+          <h2>Munkák fegyelem, típus és helyszín szerint.</h2>
+        </div>
+        <p class="lead">A portfólió építészet, belsőépítészet, közösségi és vendéglátó projektek szerint is böngészhető.</p>
+      </div>
+
+      <div class="portfolio-tools reveal">
+        <input class="search" type="search" placeholder="Keresés projekt, típus vagy helyszín szerint" aria-label="Portfólió keresés">
+        <div class="filter-bar" aria-label="Portfólió szűrők">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">Mind</button>
+          <button class="filter" type="button" data-filter="architecture" aria-pressed="false">Építészet</button>
+          <button class="filter" type="button" data-filter="interior" aria-pressed="false">Belső</button>
+          <button class="filter" type="button" data-filter="public" aria-pressed="false">Közintézmény</button>
+          <button class="filter" type="button" data-filter="commercial" aria-pressed="false">Vendéglátás</button>
+        </div>
+      </div>
+
+      <div class="listing reveal" data-listing>
+        <article class="listing-item" data-tags="architecture villa budapest io16">
+          <figure><img src="assets/io16-villa-02.webp" alt="Villa infinity medencével és panorámával"></figure>
+          <div class="item-meta"><span>Építészet</span><span>Villa</span><span>Budapest</span></div>
+          <h3>IO16 Villa</h3>
+          <p>Panorámás villa, horizontális homlokzati ritmussal.</p>
+        </article>
+        <article class="listing-item" data-tags="architecture family house budapest ck08">
+          <figure><img src="assets/ck08-exterior-02.webp" alt="Modern családi ház lebegő tömegekkel"></figure>
+          <div class="item-meta"><span>Építészet</span><span>Családi ház</span><span>Budapest</span></div>
+          <h3>CK08 ikerház</h3>
+          <p>Rétegzett struktúra és smart home logika prémium lakófunkcióhoz.</p>
+        </article>
+        <article class="listing-item" data-tags="interior apartment h45 budapest">
+          <figure><img src="assets/h45-interior-living.webp" alt="Modern nappali világos kanapéval és ívelt faburkolattal"></figure>
+          <div class="item-meta"><span>Belsőépítészet</span><span>Lakás</span><span>Budapest</span></div>
+          <h3>H45/L4 lakásbelső</h3>
+          <p>Homogén felületek, textúrák és növényrétegek nyugodt lakótérben.</p>
+        </article>
+        <article class="listing-item" data-tags="public interior university debrecen learning center">
+          <figure><img src="assets/learning-center-02.webp" alt="Learning Center lobby íves lépcsővel és emelt padsorral"></figure>
+          <div class="item-meta"><span>Belsőépítészet</span><span>Közintézmény</span><span>Debrecen</span></div>
+          <h3>Debreceni Egyetem Learning Center</h3>
+          <p>Nagyvonalú, áttekinthető közösségi tér oktatási környezetben.</p>
+        </article>
+        <article class="listing-item" data-tags="commercial architecture restaurant rkmz">
+          <figure><img src="assets/rkmz-restaurant-01.webp" alt="Kortárs étterem építészeti terve"></figure>
+          <div class="item-meta"><span>Építészet</span><span>Étterem</span></div>
+          <h3>RKMZ étterem</h3>
+          <p>Vendéglátó funkció lapostetős, tiszta építészeti formában.</p>
+        </article>
+        <article class="listing-item" data-tags="studio office interior architecture b13">
+          <figure><img src="assets/b13-studio-exterior.webp" alt="B13 saját műterem külső építészeti képe"></figure>
+          <div class="item-meta"><span>Studio</span><span>Iroda</span><span>Budapest</span></div>
+          <h3>B13 műterem</h3>
+          <p>Saját építészeti tér, ahol a stúdió karaktere közvetlenül megjelenik.</p>
+        </article>
+      </div>
+      <p class="empty" data-empty>Nincs találat erre a szűrésre. Próbálj kevesebb feltételt vagy más keresőszót.</p>
+      <div class="inline-actions reveal">
+        <a class="button secondary" href="epiteszet-galeria/index.html">Teljes építészeti galéria</a>
+      </div>
+    </section>
+
+    <section class="section feature" id="projekt">
+      <div class="feature-inner reveal">
+        <p class="eyebrow">Kiemelt projekt</p>
+        <h2>CK08: kívül és belül összekapcsolt lakótér.</h2>
+        <p class="lead">A tömegek, a homlokzati rétegek és a belső terek ugyanazt a fegyelmezett, nyugodt gondolkodást követik. A projekt egyszerre építészeti és belsőépítészeti feladat.</p>
+        <dl class="meta-table">
+          <div>
+            <dt>Típus</dt>
+            <dd>Családi ház / ikerház</dd>
+          </div>
+          <div>
+            <dt>Fegyelem</dt>
+            <dd>Építészet + belsőépítészet</dd>
+          </div>
+          <div>
+            <dt>Helyszín</dt>
+            <dd>Budapest</dd>
+          </div>
+          <div>
+            <dt>Fókusz</dt>
+            <dd>Rétegzett homlokzat, prémium lakótér</dd>
+          </div>
+        </dl>
+        <div class="inline-actions">
+          <a class="button" href="#kapcsolat">Hasonló projekt</a>
+          <a class="button secondary" href="#munkak">Vissza a munkákhoz</a>
+        </div>
+      </div>
+      <figure class="feature-media reveal">
+        <img src="assets/ck08-interior-01.webp" alt="CK08 projekt belsőépítészeti nézete">
+      </figure>
+    </section>
+
+    <section class="section story-grid" id="studio">
+      <div class="story-copy reveal">
+        <p class="eyebrow">Studio</p>
+          <h2>A tervezés beszélgetéssel kezdődik.</h2>
+        <p>Munkáinkban a megrendelő személyes világa, az adott hely karaktere és a kortárs építészet fegyelme találkozik. A terek nem önmagukért látványosak: használhatók, pontosak és hosszú távon is érvényesek.</p>
+        <p>A műterem építészekből, belsőépítészekből és projektvezetőkből álló csapata a koncepciótól a részletekig közösen dolgozik egy koherens térbeli történeten.</p>
+      </div>
+      <figure class="story-media reveal">
+        <img src="assets/b13-studio-interior.webp" alt="B13 építészeti műterem belső tere">
+      </figure>
+    </section>
+
+    <section class="section section-tight">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Szolgáltatások</p>
+          <h2>Épületek, belső terek és végiggondolt részletek.</h2>
+        </div>
+        <p class="lead">A B13 építészeti és belsőépítészeti feladatokat egyaránt vállal, a korai gondolattól a megvalósulást segítő részletezésig.</p>
+      </div>
+      <div class="services reveal">
+        <div class="service">
+          <strong>Építészet</strong>
+          <p>Villák, családi házak, társasházak, nyaralók, rekonstrukciók és intézményi épületek tervezése.</p>
+        </div>
+        <div class="service">
+          <strong>Belsőépítészet</strong>
+          <p>Lakásbelsők, villabelsők, irodák, éttermek és közösségi terek anyaggal, fénnyel és használattal együtt bemutatva.</p>
+        </div>
+        <div class="service">
+          <strong>Folyamat</strong>
+          <p>A telek, az épület, a használat és az anyagok összehangolása a korai döntésektől a részletekig.</p>
+        </div>
+        <div class="service">
+          <strong>Megvalósítás</strong>
+          <p>Tervezői kontroll, egyeztetések és kivitelezést támogató részletek a pontos végeredményért.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" id="media">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Media</p>
+          <h2>Publikációk, interjúk és szakmai megjelenések.</h2>
+        </div>
+        <p class="lead">A B13 munkái hazai és nemzetközi építészeti, design és kulturális felületeken is megjelentek.</p>
+      </div>
+      <div class="media-grid reveal">
+        <article class="media-item">
+          <figure class="media-thumb"><img src="assets/io16-villa-01.webp" alt="Villa publikációs előnézet"></figure>
+          <div class="item-meta"><span>Octogon</span><span>Publikáció</span></div>
+          <h3>Visszafogott elegancia</h3>
+          <p class="small">Publikáció egy kortárs lakóépület építészeti karakteréről.</p>
+        </article>
+        <article class="media-item">
+          <figure class="media-thumb"><img src="assets/learning-center-02.webp" alt="Learning Center publikációs előnézet"></figure>
+          <div class="item-meta"><span>Építészfórum</span><span>Közintézmény</span></div>
+          <h3>Nagyvonalú és otthonos</h3>
+          <p class="small">A Debreceni Egyetem Learning Center belső terei.</p>
+        </article>
+        <article class="media-item">
+          <figure class="media-thumb"><img src="assets/b13-studio-exterior.webp" alt="B13 studio publikációs előnézet"></figure>
+          <div class="item-meta"><span>Interview</span><span>Studio</span></div>
+          <h3>Mindent lehet másképp csinálni</h3>
+          <p class="small">Beszélgetések építészetről, gondolkodásról és a műterem szemléletéről.</p>
+        </article>
+      </div>
+      <div class="inline-actions reveal">
+        <a class="button secondary" href="hirek/index.html">További Média megjelenések</a>
+      </div>
+    </section>
+
+    <section class="section story-grid" id="karrier">
+      <figure class="story-media reveal">
+        <img src="assets/b13-studio-exterior.webp" alt="B13 építész műterem külső képe">
+      </figure>
+      <div class="story-copy reveal">
+        <p class="eyebrow">Karrier</p>
+        <h2>Nyitott szemlélet, pontos munka, közös felelősség.</h2>
+        <p>A műterem olyan építészek és belsőépítészek bemutatkozását fogadja, akik érzékenyek a tér, az anyag, a részlet és az emberi használat kapcsolatára.</p>
+        <div class="inline-actions">
+          <a class="button secondary" href="#kapcsolat">Bemutatkozás küldése</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="kapcsolat">
+      <div class="contact-panel reveal">
+        <div>
+          <p class="eyebrow">Kapcsolat</p>
+          <h2>Beszéljünk a következő projektről.</h2>
+          <p class="lead">Írjon röviden a helyszínről, a feladatról és az elképzelt ütemezésről. A műterem telefonon és emailben is elérhető.</p>
+        </div>
+        <dl class="contact-list">
+          <dt>Cég</dt>
+          <dd>B13 Építőművész Kft.</dd>
+          <dt>Cím</dt>
+          <dd>1125 Budapest, Szamóca köz 8/b.</dd>
+          <dt>Email</dt>
+          <dd><a href="mailto:istvan.benyei@benyei.hu">istvan.benyei@benyei.hu</a></dd>
+          <dt>Telefon</dt>
+          <dd><a href="tel:+36309311613">+36 30 9311 613</a></dd>
+        </dl>
+      </div>
+
+      <form class="form reveal" data-contact-form>
+        <div class="field">
+          <label for="name">Név</label>
+          <input id="name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="type">Projekt típusa</label>
+          <select id="type" name="type">
+            <option>Építészet</option>
+            <option>Belsőépítészet</option>
+            <option>Építészet és belsőépítészet</option>
+            <option>Sajtó / media</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="location">Helyszín</label>
+          <input id="location" name="location" placeholder="Budapest, Balaton, külföld...">
+        </div>
+        <div class="field full">
+          <label for="message">Üzenet</label>
+          <textarea id="message" name="message" required placeholder="Röviden a projektről, ütemezésről és a tervezési feladatról."></textarea>
+        </div>
+        <div class="field full">
+          <button class="button" type="submit">Megkeresés előkészítése</button>
+          <p class="form-message" data-form-message aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>B13 Architects</span>
+    <nav class="footer-links" aria-label="Lábléc navigáció">
+      <a href="#top">Kezdőlap</a>
+      <a href="#munkak">Munkák</a>
+      <a href="epiteszet-galeria/index.html">Építészet</a>
+      <a href="belsoepiteszet-galeria/index.html">Belsőépítészet</a>
+      <a href="rolunk/index.html">Studio</a>
+      <a href="hirek/index.html">Media</a>
+      <a href="#kapcsolat">Kapcsolat</a>
+    </nav>
+    <span class="social">Facebook · Instagram · Pinterest · YouTube</span>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector(".menu-toggle");
+    const body = document.body;
+    const mobileMenu = document.querySelector(".mobile-menu");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = body.classList.toggle("menu-open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    mobileMenu.addEventListener("click", (event) => {
+      if (event.target.matches("a")) {
+        body.classList.remove("menu-open");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    const filters = document.querySelectorAll("[data-filter]");
+    const listingItems = document.querySelectorAll(".listing-item");
+    const searchInput = document.querySelector(".search");
+    const emptyState = document.querySelector("[data-empty]");
+    let activeFilter = "all";
+
+    function updateListing() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      listingItems.forEach((item) => {
+        const tags = item.dataset.tags;
+        const text = item.textContent.toLowerCase();
+        const matchesFilter = activeFilter === "all" || tags.includes(activeFilter);
+        const matchesSearch = !query || tags.includes(query) || text.includes(query);
+        const isVisible = matchesFilter && matchesSearch;
+
+        item.hidden = !isVisible;
+        if (isVisible) visibleCount += 1;
+      });
+
+      emptyState.classList.toggle("is-visible", visibleCount === 0);
+    }
+
+    filters.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+        filters.forEach((filter) => {
+          filter.setAttribute("aria-pressed", String(filter === button));
+        });
+        updateListing();
+      });
+    });
+
+    searchInput.addEventListener("input", updateListing);
+
+    const form = document.querySelector("[data-contact-form]");
+    const formMessage = document.querySelector("[data-form-message]");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const subject = encodeURIComponent("B13 projektmegkeresés");
+      const bodyText = encodeURIComponent(
+        `Név: ${data.get("name")}\nEmail: ${data.get("email")}\nProjekt típusa: ${data.get("type")}\nHelyszín: ${data.get("location")}\n\n${data.get("message")}`
+      );
+      formMessage.innerHTML = `A levélvázlat elkészült. <a href="mailto:istvan.benyei@benyei.hu?subject=${subject}&body=${bodyText}">Megnyitás emailben</a>`;
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
+  </script>
+</body>
+</html>
