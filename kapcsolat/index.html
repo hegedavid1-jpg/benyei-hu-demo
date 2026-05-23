@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="../assets/b13-logo.svg" type="image/svg+xml">
-  <title>Rólunk | B13 Architects</title>
-  <meta name="description" content="A B13 Architects budapesti építészeti és belsőépítészeti műterem filozófiája, csapata és tervezési szemlélete.">
+  <title>Kapcsolat | B13 Architects</title>
+  <meta name="description" content="Kapcsolat a B13 Architects budapesti építészeti és belsőépítészeti műteremmel. Projektmegkeresés, sajtókapcsolat és stúdió elérhetőségek.">
+  <link rel="canonical" href="https://benyei.hu/kapcsolat">
   <style>
     :root {
       --paper: #f7f7f4;
@@ -36,7 +37,11 @@
       background: var(--paper);
       color: var(--ink);
       font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.58;
+      line-height: 1.56;
+    }
+
+    body.menu-open {
+      overflow: hidden;
     }
 
     img {
@@ -55,8 +60,15 @@
       text-decoration: none;
     }
 
-    body.menu-open {
-      overflow: hidden;
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
     }
 
     .site-header {
@@ -64,7 +76,7 @@
       top: 0;
       z-index: 50;
       display: grid;
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: auto 1fr auto auto;
       align-items: center;
       gap: 28px;
       padding: 18px var(--pad);
@@ -170,12 +182,12 @@
     .section {
       max-width: var(--max);
       margin: 0 auto;
-      padding: clamp(72px, 9vw, 140px) var(--pad);
+      padding: clamp(72px, 9vw, 132px) var(--pad);
     }
 
     .section-tight {
-      padding-top: clamp(48px, 6vw, 92px);
-      padding-bottom: clamp(48px, 6vw, 92px);
+      padding-top: clamp(48px, 6vw, 88px);
+      padding-bottom: clamp(48px, 6vw, 88px);
     }
 
     .eyebrow {
@@ -195,7 +207,7 @@
     }
 
     h1 {
-      max-width: 1040px;
+      max-width: 920px;
       margin-bottom: 24px;
       font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(32px, 4vw, 64px);
@@ -204,185 +216,165 @@
     }
 
     h2 {
-      max-width: 820px;
+      max-width: 780px;
       margin-bottom: 24px;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(30px, 4vw, 58px);
+      font-size: clamp(30px, 4vw, 56px);
       font-weight: 400;
       line-height: 1.06;
     }
 
     h3 {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       font-size: clamp(20px, 2vw, 28px);
       font-weight: 500;
       line-height: 1.18;
     }
 
     .lead {
-      max-width: 760px;
+      max-width: 700px;
       color: var(--graphite);
-      font-size: clamp(18px, 2vw, 24px);
+      font-size: clamp(18px, 2vw, 23px);
       line-height: 1.5;
-    }
-
-    .small {
-      color: var(--muted);
-      font-size: 14px;
     }
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, .9fr) minmax(360px, 1.1fr);
-      gap: clamp(32px, 5vw, 88px);
-      align-items: center;
-      min-height: calc(100vh - 85px);
-      padding-top: clamp(34px, 5vw, 74px);
+      grid-template-columns: minmax(0, .88fr) minmax(360px, 1.12fr);
+      gap: clamp(28px, 5vw, 86px);
+      align-items: end;
+      min-height: calc(100vh - 86px);
+      padding-top: clamp(28px, 4vw, 56px);
+    }
+
+    .hero-copy {
+      padding-bottom: clamp(18px, 5vw, 76px);
     }
 
     .hero-media {
-      min-height: 680px;
-      border-radius: var(--radius);
+      min-height: 620px;
       overflow: hidden;
+      border-radius: var(--radius);
+      background: #ddd;
     }
 
     .hero-media img,
-    .wide-media img,
-    .split-media img,
-    .project-link img {
+    .feature-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .statement {
+    .contact-shell {
       display: grid;
-      grid-template-columns: minmax(260px, .85fr) minmax(0, 1.15fr);
-      gap: clamp(32px, 6vw, 110px);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      grid-template-columns: minmax(270px, .78fr) minmax(320px, 1.22fr);
+      gap: clamp(34px, 6vw, 92px);
+      align-items: start;
     }
 
-    .statement blockquote {
+    .contact-panel {
+      display: grid;
+      gap: 28px;
+      padding-top: 4px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 8px;
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(28px, 4vw, 54px);
-      line-height: 1.14;
     }
 
-    .statement-copy {
-      color: var(--graphite);
-      font-size: 18px;
+    .contact-list dt {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
     }
 
-    .wide-media {
-      aspect-ratio: 16 / 8;
-      border-radius: var(--radius);
-      overflow: hidden;
+    .contact-list dd {
+      margin: 0 0 14px;
+      color: var(--ink);
     }
 
-    .principles {
+    .note-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       margin-top: 34px;
-      background: var(--line);
       border: 1px solid var(--line);
-    }
-
-    .principle {
-      min-height: 260px;
-      padding: clamp(22px, 3vw, 34px);
-      background: var(--paper);
-    }
-
-    .principle strong {
-      display: block;
-      margin-bottom: 18px;
-      color: var(--brand);
-      font-size: 12px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: clamp(28px, 5vw, 76px);
-      align-items: center;
-    }
-
-    .split-media {
-      min-height: 560px;
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .process {
-      display: grid;
-      gap: 1px;
-      margin-top: 34px;
       background: var(--line);
-      border: 1px solid var(--line);
     }
 
-    .process-row {
-      display: grid;
-      grid-template-columns: 92px minmax(180px, .65fr) minmax(0, 1fr);
-      gap: 24px;
-      align-items: start;
+    .note-card {
+      min-height: 210px;
       padding: 24px;
       background: var(--paper);
     }
 
-    .process-row span {
+    .note-card strong {
+      display: block;
+      margin-bottom: 18px;
       color: var(--brand);
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .16em;
+      letter-spacing: .15em;
       text-transform: uppercase;
     }
 
-    .project-strip {
+    .form {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 34px;
-    }
-
-    .project-link {
-      display: grid;
-      gap: 12px;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 16px;
-    }
-
-    .project-link figure {
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      padding: clamp(22px, 3vw, 34px);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
+      background: color-mix(in srgb, var(--white) 70%, var(--paper));
     }
 
-    .project-link p {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .cta {
+    .field {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 28px;
-      align-items: end;
-      background: var(--ink);
-      color: var(--white);
-      max-width: none;
-      padding-left: var(--pad);
-      padding-right: var(--pad);
+      gap: 7px;
     }
 
-    .cta .lead {
-      color: rgba(255, 255, 255, .74);
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      color: var(--graphite);
+      font-size: 12px;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--white);
+      padding: 12px 13px;
+      color: var(--ink);
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--brand);
+      outline: none;
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .form-message {
+      min-height: 22px;
+      margin-bottom: 0;
+      color: var(--sage);
+      font-size: 14px;
     }
 
     .button {
@@ -391,10 +383,10 @@
       justify-content: center;
       min-height: 44px;
       padding: 12px 18px;
-      border: 1px solid var(--white);
+      border: 1px solid var(--ink);
       border-radius: var(--radius);
-      background: var(--white);
-      color: var(--ink);
+      background: var(--ink);
+      color: var(--white);
       font-size: 13px;
       letter-spacing: .08em;
       text-transform: uppercase;
@@ -403,9 +395,30 @@
 
     .button:hover,
     .button:focus-visible {
-      border-color: var(--brand);
       background: var(--brand);
+      border-color: var(--brand);
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(280px, .78fr) minmax(0, 1.22fr);
+      gap: clamp(28px, 5vw, 78px);
+      align-items: center;
+      max-width: none;
+      background: var(--ink);
       color: var(--white);
+      padding-left: var(--pad);
+      padding-right: var(--pad);
+    }
+
+    .feature .lead {
+      color: rgba(255, 255, 255, .74);
+    }
+
+    .feature-media {
+      min-height: 560px;
+      overflow: hidden;
+      border-radius: var(--radius);
     }
 
     .site-footer {
@@ -445,6 +458,10 @@
     }
 
     @media (max-width: 1080px) {
+      .site-header {
+        grid-template-columns: auto 1fr auto;
+      }
+
       .nav {
         display: none;
       }
@@ -454,9 +471,8 @@
       }
 
       .hero,
-      .statement,
-      .split,
-      .cta {
+      .contact-shell,
+      .feature {
         grid-template-columns: 1fr;
       }
 
@@ -464,14 +480,17 @@
         min-height: auto;
       }
 
+      .hero-copy {
+        padding-bottom: 0;
+      }
+
       .hero-media,
-      .split-media {
+      .feature-media {
         min-height: 460px;
       }
 
-      .principles,
-      .project-strip {
-        grid-template-columns: 1fr 1fr;
+      .note-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -490,21 +509,15 @@
       }
 
       .hero-media,
-      .split-media,
-      .wide-media {
+      .feature-media {
         min-height: auto;
         aspect-ratio: 4 / 3;
       }
 
-      .principles,
-      .project-strip,
-      .process-row,
+      .form,
+      .note-grid,
       .site-footer {
         grid-template-columns: 1fr;
-      }
-
-      .process-row {
-        gap: 8px;
       }
 
       .site-footer {
@@ -541,9 +554,9 @@
       <a href="../index.html#munkak">Munkák</a>
       <a href="../epiteszet-galeria/index.html">Építészet</a>
       <a href="../belsoepiteszet-galeria/index.html">Belsőépítészet</a>
-      <a href="index.html" aria-current="page">Studio</a>
+      <a href="../rolunk/index.html">Studio</a>
       <a href="../hirek/index.html">Media</a>
-      <a href="../kapcsolat/index.html">Kapcsolat</a>
+      <a href="index.html" aria-current="page">Kapcsolat</a>
     </nav>
     <a class="lang" href="index.html" lang="en" aria-label="English version">English</a>
     <button class="menu-toggle" type="button" aria-label="Menü megnyitása" aria-expanded="false">
@@ -557,135 +570,107 @@
     <a href="../index.html#munkak">Munkák</a>
     <a href="../epiteszet-galeria/index.html">Építészet</a>
     <a href="../belsoepiteszet-galeria/index.html">Belsőépítészet</a>
-    <a href="index.html">Studio</a>
+    <a href="../rolunk/index.html">Studio</a>
     <a href="../hirek/index.html">Media</a>
-    <a href="../index.html#karrier">Karrier</a>
-    <a href="../kapcsolat/index.html">Kapcsolat</a>
+    <a href="index.html" aria-current="page">Kapcsolat</a>
   </nav>
 
-  <main>
+  <main id="top">
     <section class="section hero">
-      <div class="reveal">
-        <p class="eyebrow">Rólunk</p>
-        <h1>Építészet és belsőépítészet szenvedéllyel.</h1>
-        <p class="lead">A B13 Építőművész tervező iroda budapesti építészeti és belsőépítészeti stúdió. Munkáinkban a megrendelő személyes világa, az adott hely karaktere és a pontos, kortárs tervezői gondolkodás találkozik.</p>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Kapcsolat</p>
+        <h1>Beszéljünk a következő projektről.</h1>
+        <p class="lead">Írjon röviden a helyszínről, a feladatról és az elképzelt ütemezésről. A B13 Architects építészeti és belsőépítészeti megkereséseket, sajtókérdéseket és szakmai együttműködéseket is ezen a csatornán fogad.</p>
       </div>
       <figure class="hero-media reveal">
-        <img src="../assets/b13-studio-interior.webp" alt="B13 műterem világos irodabelsővel">
+        <img src="../assets/b13-studio-exterior.webp" alt="B13 Architects budapesti műterem külső nézete">
       </figure>
     </section>
 
-    <section class="section statement">
-      <blockquote class="reveal">Nem csupán terveket készítünk. Tereket formálunk, amelyek az életminőséget emelik.</blockquote>
-      <div class="statement-copy reveal">
-        <p><strong>Bényei István</strong> alapította a B13 Építőművész tervező irodát, amely nemzetközileg is aktív építészeti és belsőépítészeti stúdióként dolgozik Budapesten.</p>
-        <p>Műtermünk elsősorban társasházak, irodaházak, oktatási intézmények, szállodák és magán ingatlanok prémium szegmensében valósít meg generál tervezési projekteket, de tevékenységi körünk ennél jóval szélesebb.</p>
+    <section class="section section-tight contact-shell" id="urlap">
+      <div class="contact-panel reveal">
+        <div>
+          <p class="eyebrow">Elérhetőségek</p>
+          <h2>B13 Építőművész Kft.</h2>
+          <p class="lead">A megkeresés akkor a leghasznosabb, ha tartalmazza a projekt típusát, a helyszínt, a tervezett ütemezést és azt, hogy építészeti, belsőépítészeti vagy komplex feladatról van-e szó.</p>
+        </div>
+        <dl class="contact-list">
+          <dt>Cím</dt>
+          <dd>1125 Budapest, Szamóca köz 8/b.</dd>
+          <dt>Email</dt>
+          <dd><a href="mailto:istvan.benyei@benyei.hu">istvan.benyei@benyei.hu</a></dd>
+          <dt>Telefon</dt>
+          <dd><a href="tel:+36309311613">+36 30 9311 613</a></dd>
+        </dl>
       </div>
+
+      <form class="form reveal" data-contact-form>
+        <div class="field">
+          <label for="name">Név</label>
+          <input id="name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="type">Projekt típusa</label>
+          <select id="type" name="type">
+            <option>Építészet</option>
+            <option>Belsőépítészet</option>
+            <option>Építészet és belsőépítészet</option>
+            <option>Sajtó / media</option>
+            <option>Karrier</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="location">Helyszín</label>
+          <input id="location" name="location" placeholder="Budapest, Balaton, külföld...">
+        </div>
+        <div class="field full">
+          <label for="message">Üzenet</label>
+          <textarea id="message" name="message" required placeholder="Röviden a projektről, ütemezésről és a tervezési feladatról."></textarea>
+        </div>
+        <div class="field full">
+          <button class="button" type="submit">Megkeresés előkészítése</button>
+          <p class="form-message" data-form-message aria-live="polite"></p>
+        </div>
+      </form>
     </section>
 
     <section class="section section-tight">
       <div class="reveal">
-        <p class="eyebrow">Szemlélet</p>
-        <h2>Az egyedi feladatokra egyedi térbeli válaszokat keresünk.</h2>
-        <p class="lead">Hiszünk az átlátható és átjárható terekben. Alkotásaink az elkerítés és bezárkózás helyett a nyitottságot, a társas együttélés új formáit és a környezettel való szoros kapcsolatot keresik.</p>
+        <p class="eyebrow">Miben érdemes írni?</p>
+        <h2>Projekt, sajtó vagy szakmai megkeresés.</h2>
       </div>
-      <div class="principles reveal">
-        <article class="principle">
-          <strong>Emberi világ</strong>
-          <h3>Beszélgetéssel kezdődik</h3>
-          <p>A tervezés során megértjük a megrendelő életmódját, szokásait és vágyait, hogy a tér ne csak szép, hanem személyesen használható legyen.</p>
+      <div class="note-grid reveal">
+        <article class="note-card">
+          <strong>Új projekt</strong>
+          <h3>Építészet és belsőépítészet</h3>
+          <p>Telek, meglévő épület, lakás, villa, iroda, étterem vagy intézményi tér esetén a feladat rövid leírásával érdemes kezdeni.</p>
         </article>
-        <article class="principle">
-          <strong>Építészeti fegyelem</strong>
-          <h3>Helyhez kötött forma</h3>
-          <p>Minden épület társadalmi, kulturális és épített környezetével finom kapcsolatban áll. Ebből a viszonyból indul a forma és az anyaghasználat.</p>
+        <article class="note-card">
+          <strong>Sajtó</strong>
+          <h3>Interjú és publikáció</h3>
+          <p>Projektképek, háttéranyagok és interjúegyeztetés célzott kérés alapján készülnek elő.</p>
         </article>
-        <article class="principle">
-          <strong>Fenntarthatóság</strong>
-          <h3>Élhető prémium</h3>
-          <p>Amikor a prémium felszereltség, energiahatékonyság és fenntarthatóság alapvető elvárás, a természettel való összhang teszi igazán élhetővé az épületet.</p>
+        <article class="note-card">
+          <strong>Karrier</strong>
+          <h3>Bemutatkozás</h3>
+          <p>Portfólióval, szakmai háttérrel és rövid motivációval várjuk az építészeti vagy belsőépítészeti bemutatkozásokat.</p>
         </article>
       </div>
     </section>
 
-    <section class="section split">
-      <figure class="split-media reveal">
-        <img src="../assets/ck08-exterior-01.webp" alt="B13 által tervezett kortárs családi ház">
+    <section class="section feature">
+      <div class="reveal">
+        <p class="eyebrow">Studio</p>
+        <h2>A műteremmel való munka személyes beszélgetéssel indul.</h2>
+        <p class="lead">A korai egyeztetés segít tisztázni a helyzetet, a lehetőségeket, a döntési pontokat és azt, hogy milyen szakági együttműködésre lesz szükség.</p>
+      </div>
+      <figure class="feature-media reveal">
+        <img src="../assets/b13-studio-interior.webp" alt="B13 Architects műterem belső tere">
       </figure>
-      <div class="reveal">
-        <p class="eyebrow">Interdiszciplináris csapat</p>
-        <h2>Építészet, belsőépítészet és design egy gondolkodásban.</h2>
-        <p class="lead">A Bényei ernyőmárka alatt innovatív csapat dolgozik az építészet, a belsőépítészet és a dizájn fő területein, függetlenül a projekt méretétől.</p>
-        <p>Csapatunk tagjai különböző szakmai háttérrel érkeznek, de közös bennünk a szép dolgok iránti szeretet, az építészet iránti elhivatottság és az igény, hogy minden feladatra pontos, egyedi megoldást találjunk.</p>
-      </div>
-    </section>
-
-    <section class="section section-tight">
-      <figure class="wide-media reveal">
-        <img src="../assets/learning-center-01.webp" alt="Debreceni Egyetem Learning Center belső tere">
-      </figure>
-    </section>
-
-    <section class="section section-tight">
-      <div class="reveal">
-        <p class="eyebrow">Folyamat</p>
-        <h2>A koncepciótól a legapróbb dizájnelemekig.</h2>
-      </div>
-      <div class="process reveal">
-        <article class="process-row">
-          <span>01</span>
-          <h3>Megismerés</h3>
-          <p>A helyszín, a megrendelői világ, az életmód és a funkcionális igények pontos feltérképezése.</p>
-        </article>
-        <article class="process-row">
-          <span>02</span>
-          <h3>Koncepció</h3>
-          <p>Az épület és a belső tér fő szerkesztési elveinek, anyagainak és hangulatának meghatározása.</p>
-        </article>
-        <article class="process-row">
-          <span>03</span>
-          <h3>Részletezés</h3>
-          <p>A forma, a belsőépítészet, a világítás, a burkolatok és az egyedi elemek összehangolása.</p>
-        </article>
-        <article class="process-row">
-          <span>04</span>
-          <h3>Megvalósítás támogatása</h3>
-          <p>Tervezői kontroll és szakmai egyeztetés annak érdekében, hogy a projekt koherens maradjon.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section-tight">
-      <div class="reveal">
-        <p class="eyebrow">Kapcsolódó munkák</p>
-        <h2>A szemlélet a projektekben válik láthatóvá.</h2>
-      </div>
-      <div class="project-strip reveal">
-        <a class="project-link" href="../epiteszet-galeria/index.html">
-          <figure><img src="../assets/ck08-interior-01.webp" alt="CK08 projekt belső tere"></figure>
-          <h3>CK08</h3>
-          <p>Építészet és belsőépítészet egy projektben.</p>
-        </a>
-        <a class="project-link" href="../index.html#munkak">
-          <figure><img src="../assets/h45-interior-kitchen.webp" alt="H45 lakásbelső konyhával"></figure>
-          <h3>H45/L4</h3>
-          <p>Textúrák, növények és nyugodt belső tér.</p>
-        </a>
-        <a class="project-link" href="../index.html#munkak">
-          <figure><img src="../assets/io16-villa-01.webp" alt="IO16 villa építészeti képe"></figure>
-          <h3>IO16</h3>
-          <p>Panorámás villa fegyelmezett tömegformálással.</p>
-        </a>
-      </div>
-    </section>
-
-    <section class="section cta">
-      <div class="reveal">
-        <p class="eyebrow">Kapcsolat</p>
-        <h2>Beszéljünk a következő épületről vagy belső térről.</h2>
-        <p class="lead">Írjon röviden a helyszínről, a feladatról és az elképzelt ütemezésről.</p>
-      </div>
-      <a class="button reveal" href="../kapcsolat/index.html">Kapcsolatfelvétel</a>
     </section>
   </main>
 
@@ -696,9 +681,9 @@
       <a href="../index.html#munkak">Munkák</a>
       <a href="../epiteszet-galeria/index.html">Építészet</a>
       <a href="../belsoepiteszet-galeria/index.html">Belsőépítészet</a>
-      <a href="index.html">Studio</a>
+      <a href="../rolunk/index.html">Studio</a>
       <a href="../hirek/index.html">Media</a>
-      <a href="../kapcsolat/index.html">Kapcsolat</a>
+      <a href="index.html" aria-current="page">Kapcsolat</a>
     </nav>
     <span class="social">Facebook · Instagram · Pinterest · YouTube</span>
   </footer>
@@ -718,6 +703,19 @@
         body.classList.remove("menu-open");
         menuButton.setAttribute("aria-expanded", "false");
       }
+    });
+
+    const form = document.querySelector("[data-contact-form]");
+    const formMessage = document.querySelector("[data-form-message]");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const subject = encodeURIComponent("B13 projektmegkeresés");
+      const bodyText = encodeURIComponent(
+        `Név: ${data.get("name")}\nEmail: ${data.get("email")}\nProjekt típusa: ${data.get("type")}\nHelyszín: ${data.get("location")}\n\n${data.get("message")}`
+      );
+      formMessage.innerHTML = `A levélvázlat elkészült. <a href="mailto:istvan.benyei@benyei.hu?subject=${subject}&body=${bodyText}">Megnyitás emailben</a>`;
     });
 
     const observer = new IntersectionObserver((entries) => {
